@@ -10,6 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # Install additional system dependencies
+      - name: Install Build Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y automake autoconf libltdl-dev
+
       # used to cache dependencies with a timeout
       - name: Get Date
         id: get-date
