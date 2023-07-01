@@ -1,0 +1,19 @@
+<WindowManager>:
+    Home:
+        name: "home"
+    OtherScreen:
+        name: "other"
+
+<Home>:
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "Go to Other Screen"
+            on_release: app.root.current = "other"
+
+<OtherScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "Go to Home Screen"
+            on_release: app.root.current = "home"
