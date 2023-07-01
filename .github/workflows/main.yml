@@ -11,19 +11,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-
-      - name: Install Buildozer
-        run: pip install buildozer
-
       - name: Build with Buildozer
-        run: buildozer android debug
+        uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
+        with:
+          workdir: test_app
+          buildozer_version: stable
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: package
-          path: ./bin/
+          path: ${{ steps.buildozer.outputs.filename }}
