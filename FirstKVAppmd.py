@@ -1,4 +1,4 @@
-from kivymd.app import MDApp
+from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
@@ -13,7 +13,7 @@ class Home(Screen):
 class OtherScreen(Screen):
     pass
 
-class MyApp(MDApp):
+class MyApp(App):
 
     def build(self):
         # Create a list of all screens, loop through it and add them to the screen manager
